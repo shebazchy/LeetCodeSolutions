@@ -9,4 +9,12 @@ class Solution {
 	    }
 	    return  null;
 	}
+	   public int getSum(int a, int b) {
+	        while (b != 0){
+	            int sum = a & b;
+	            a = a ^ b;
+	            b = sum << 1;
+	        }
+	        return a;
+	    }
 }
