@@ -74,4 +74,24 @@ class Solution {
 	          }
 	        }
 	    }
+	    public int maxDepth(TreeNode root) {
+	        if(root == null){
+	            return 0;
+	        }
+	        int leftDepth = maxDepth(root.left);
+	        int rightDepth = maxDepth(root.right);
+	        
+	        return Math.max(leftDepth, rightDepth) + 1;
+	    }
+	    public int maxProfit(int prices[]) {
+	        int maxprofit = 0;
+	        for (int i = 0; i < prices.length - 1; i++) {
+	            for (int j = i + 1; j < prices.length; j++) {
+	                int profit = prices[j] - prices[i];
+	                if (profit > maxprofit)
+	                    maxprofit = profit;
+	            }
+	        }
+	        return maxprofit;
+	    }
 }
